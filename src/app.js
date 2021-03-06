@@ -8,7 +8,7 @@ const app = new express()
 
 //set up static directory to serve
 app.use(express.static(publicDirectory))
-
+const port = process.env.PORT || 3001
 //Set up handlebars engine and views location
 app.set('view engine','hbs')
 app.set('views',viewsPath)
@@ -35,6 +35,6 @@ app.get('/products',(req,res) => {
   })
 
 })
-app.listen(3001,() => {
-  console.log('Server is up on port 3001!')
+app.listen(port,() => {
+  console.log(`Server is up on port ${port}!`)
 })
